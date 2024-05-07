@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Browse Tool Library Items</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h2>Browse the Tool Library</h2>
+        <p>
+            <a href="home.html">Home</a>&nbsp;&nbsp;
+            <a href="add.html">Add an item</a>&nbsp;&nbsp;
+            <a href="browse.html">Browse the library</a>&nbsp;&nbsp;
+        </p>
+    </header>
+
+    <h2><u>List of Garden Items</u></h2>
+    <div id="itemsList"></div>
+
+    <script type="module">
+
+        // CHANGE CATEGORY FILTER HERE
+        var filter = "garden"
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+        import { getStorage, ref as storageRef, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js";
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
+            authDomain: "tool-library-e8e06.firebaseapp.com",
+            databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "tool-library-e8e06",
+            storageBucket: "tool-library-e8e06.appspot.com",
+            messagingSenderId: "67650459658",
+            appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
+            measurementId: "G-H7LQN191WH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        // get ref to database services
+        const db = getDatabase(app);
+
+        // Get a reference to the "items" node
+        const itemsRef = ref(db, 'items');
+
+        // Initialize Firebase Storage
+        const storage = getStorage(app);
+        // Get the data from Firebase
+        get(itemsRef).then(async (snapshot) => {
+            if (snapshot.exists()) {
+                const items = snapshot.val();
+                const itemsListDiv = document.getElementById('itemsList');
+
+                // Iterate through each item and display it
+                for (const key in items) {
+                    if (Object.hasOwnProperty.call(items, key)) {
+                        const item = items[key];
+                        // Check if the category is 'kitchen'
+                        if (item.category.toLowerCase() === filter) {
+                            const itemDiv = document.createElement('div');
+                            itemDiv.innerHTML = `
+                                <h2>${item.title}</h2>
+                                ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
+                                <p><strong>Description:</strong> ${item.description}</p>
+                                <p><strong>Category:</strong> ${item.category}</p>
+                                <p><strong>Owner:</strong> ${item.name}</p>
+                                <p><strong>Contact:</strong> ${item.contact}</p>
+                                <hr>
+                            `;
+                            itemsListDiv.appendChild(itemDiv);
+                        }
+                    }
+                }
+            } else {
+                console.log("No data available");
+            }
+        }).catch((error) => {
+            console.error("Error getting data:", error);
+        });
+    </script>
+
+    <!--footer tags with id to link it to function below-->
+    <footer id="pagefooter"></footer>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input footer text from java file-->
+    <script>
+        displayFooter();
+    </script>
+
+</body>
+
+</html>
