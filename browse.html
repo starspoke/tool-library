@@ -8,14 +8,16 @@
 
 <body>
 
-    <header>
-        <h2>Browse the Tool Library</h2>
-        <p>
-            <a href="home.html">Home</a>&nbsp;&nbsp;
-            <a href="add.html">Add an item</a>&nbsp;&nbsp;
-            <a href="browse.html">Browse the library</a>&nbsp;&nbsp;
-        </p>
-    </header>
+    <!--header tags with id to link it to function below-->
+    <header id="pageheader"></header>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input header text from java file-->
+    <script>
+        displayHeader("Browse the Tool Library");
+    </script>
 
     <h3 id="pagetitle">First, choose a category:</h3>
 
@@ -27,32 +29,33 @@
         <a href="browse-kitchen.html">Kitchen</a>&nbsp;&nbsp;
         <a href="browse-garden.html">Garden</a>&nbsp;&nbsp;
         <a href="browse-books.html">Books</a>&nbsp;&nbsp;
+        <a href="browse-games.html">Games</a>&nbsp;&nbsp;
+        <a href="browse-clothes.html">Clothes</a>&nbsp;&nbsp;
+        <a href="browse-tech.html">Tech</a>&nbsp;&nbsp;
     </p>
 
     <p>
-        <a href="browse-games.html">Games</a>&nbsp;&nbsp;
         <a href="browse-sports-outdoors.html">Sports and Outdoors</a>&nbsp;&nbsp;
-        <a href="browse-clothes.html">Clothes</a>&nbsp;&nbsp;
+        <a href="browse-arts-crafts.html">Arts and Crafts</a>&nbsp;&nbsp;
+        <a href="browse-home.html">Home</a>&nbsp;&nbsp;
+        <a href="browse-skills.html">Skills</a>&nbsp;&nbsp;
         <a href="browse-other.html">Other</a>&nbsp;&nbsp;
     </p>
 
     <br />
 
     <p>
-        <i>Tip:</i> To search for a specific item, head to the 'ALL' tab and use control-F or command-F to search 
-        using your browser's built-in search function! I'm working on coding one inside the site specifically, but 
+        <i>Tip:</i> To search for a specific item, head to the 'ALL' tab and use control-F or command-F to search
+        using your browser's built-in search function! I'm working on coding one inside the site specifically, but
         for now this works well!
     </p>
 
     <!--footer tags with id to link it to function below-->
     <footer id="pagefooter"></footer>
 
-    <!--script has to be loaded before function is called below-->
-    <script src="script.js"></script>
-
     <!--call function to input footer text from java file-->
     <script>
-		displayFooter();
+        displayFooter();
     </script>
 
 </body>

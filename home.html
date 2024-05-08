@@ -4,14 +4,17 @@
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<header>
-		<h2>Welcome to the Tool Library homepage</h2>
-		<p>
-			<a href="home.html">Home</a>&nbsp;&nbsp;
-			<a href="add.html">Add an item</a>&nbsp;&nbsp;
-			<a href="browse.html">Browse the library</a>&nbsp;&nbsp;
-		</p>
-	</header>
+
+	<!--header tags with id to link it to function below-->
+	<header id="pageheader"></header>
+
+	<!--script has to be loaded before function is called below-->
+	<script src="script.js"></script>
+
+	<!--call function to input header text from java file-->
+	<script>
+		displayHeader("Welcome to the Tool Library homepage");
+	</script>
 
 	<p>
 		<h3>
@@ -22,6 +25,7 @@
 	<p>
 		Essentially, the Tool Library is a simple but (i think) awesome concept to create a
 		database of tools and resources that any of us have and are happy to mutually lend and borrow.
+		<br /><br />
 		It could be DIY tools, kitchen gadgets, garden equipment, camping or sports gear, board games,
 		puzzles, books, instruments, arts and craft supplies, party deco, or even skills - basically,
 		anything!
@@ -69,6 +73,9 @@
 		details, and hit 'submit' - that's it! Your new item should be updated onto the site very soon!
 	</p>
 
+	<br />
+	<hr />
+	<hr />
 	<br />
 
 	<p>
@@ -147,9 +154,6 @@
 
 	<!--footer tags with id to link it to function below-->
 	<footer id="pagefooter"></footer>
-
-	<!--script has to be loaded before function is called below-->
-	<script src="script.js"></script>
 
 	<!--call function to input footer text from java file-->
 	<script>

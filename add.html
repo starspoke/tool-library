@@ -7,15 +7,16 @@
 
 <body>
 
-    <!-- Main header -->
-    <header>
-        <h2>Add an item to the Tool Library</h2>
-        <p>
-            <a href="home.html">Home</a>&nbsp;&nbsp;
-            <a href="add.html">Add an item</a>&nbsp;&nbsp;
-            <a href="browse.html">Browse the library</a>&nbsp;&nbsp;
-        </p>
-    </header>
+    <!--header tags with id to link it to function below-->
+    <header id="pageheader"></header>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input header text from java file-->
+    <script>
+        displayHeader("Add an item to the Tool Library");
+    </script>
 
     <!-- Add Item form goes here -->
     <div class="box">
@@ -23,6 +24,8 @@
             <form id="add-form">
 
                 Item Title
+                <br />
+                <small style="color: #646464;">Please keep it short &amp; descriptive</small>
                 <div class="inputbox">
                     <input type="text" value="" id="title" placeholder="Item Title" required>
                 </div>
@@ -37,6 +40,8 @@
                 <br />
 
                 Your Name
+                <br />
+                <small style="color: #646464;">So people know who the owner is</small>
                 <div class="inputbox">
                     <input type="text" value="" id="name" placeholder="Your Name" required>
                 </div>
@@ -44,6 +49,8 @@
                 <br />
 
                 Contact Email / Phone
+                <br />
+                <small style="color: #646464;">So others can contact you to borrow!</small>
                 <div class="inputbox">
                     <input type="text" value="" id="contact" placeholder="Contact Email / Phone" required>
                 </div>
@@ -61,6 +68,10 @@
                         <option value="Games">Games</option>
                         <option value="Sports-Outdoors">Sports and Outdoors</option>
                         <option value="Clothes">Clothes</option>
+                        <option value="Tech">Tech</option>
+                        <option value="Home">Home</option>
+                        <option value="Arts-Crafts">Arts and Crafts</option>
+                        <option value="Skills">Skills</option>
                         <option value="Other">Other</option>
                     </select>
                 </div>
@@ -69,8 +80,10 @@
 
                 <!-- To upload image -->
                 Upload Image (optional)<br />
-                <i>Please only upload an image if it's <br />
-                    necessary or helpful for the item</i>
+                <small style="color: #646464;">
+                    Please only upload an image if it's <br />
+                    necessary or helpful for the item
+                </small>
 
                 <div class="inputbox">
                     <input type="file" id="image" accept="image/*">
@@ -146,11 +159,14 @@
         })
     </script>
 
+    <br />
+    <br />
+    <i>Tip: </i>Don't see a category you think should exist? Drop me a message and I'll add it!
+    <br />
+    <br />
+
     <!--footer tags with id to link it to function below-->
     <footer id="pagefooter"></footer>
-
-    <!--script has to be loaded before function is called below-->
-    <script src="script.js"></script>
 
     <!--call function to input footer text from java file-->
     <script>

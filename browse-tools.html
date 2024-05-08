@@ -8,14 +8,16 @@
 
 <body>
 
-    <header>
-        <h2>Browse the Tool Library</h2>
-        <p>
-            <a href="home.html">Home</a>&nbsp;&nbsp;
-            <a href="add.html">Add an item</a>&nbsp;&nbsp;
-            <a href="browse.html">Browse the library</a>&nbsp;&nbsp;
-        </p>
-    </header>
+    <!--header tags with id to link it to function below-->
+    <header id="pageheader"></header>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input header text from java file-->
+    <script>
+        displayHeader("Browse the Tool Library");
+    </script>
 
     <h2><u>List of Tools</u></h2>
     <div id="itemsList"></div>
@@ -70,14 +72,14 @@
                         if (item.category.toLowerCase() === filter) {
                             const itemDiv = document.createElement('div');
                             itemDiv.innerHTML = `
-                                <h2>${item.title}</h2>
-                                ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
-                                <p><strong>Description:</strong> ${item.description}</p>
-                                <p><strong>Category:</strong> ${item.category}</p>
-                                <p><strong>Owner:</strong> ${item.name}</p>
-                                <p><strong>Contact:</strong> ${item.contact}</p>
-                                <hr>
-                            `;
+                                    <h2>${item.title}</h2>
+                                    ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
+                                    <p><strong>Description:</strong> ${item.description}</p>
+                                    <p><strong>Category:</strong> ${item.category}</p>
+                                    <p><strong>Owner:</strong> ${item.name}</p>
+                                    <p><strong>Contact:</strong> ${item.contact}</p>
+                                    <hr>
+                                `;
                             itemsListDiv.appendChild(itemDiv);
                         }
                     }
@@ -92,9 +94,6 @@
 
     <!--footer tags with id to link it to function below-->
     <footer id="pagefooter"></footer>
-
-    <!--script has to be loaded before function is called below-->
-    <script src="script.js"></script>
 
     <!--call function to input footer text from java file-->
     <script>
