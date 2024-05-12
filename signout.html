@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!------ PAGE HEADER ------>
+    <!--header tags with id to link it to function below-->
+    <header id="pageheader"></header>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input header text from java file-->
+    <script>
+        displayHeader("Sign out of the Tool Library");
+    </script>
+
+
+    <!------ PAGE CONTENT ------>
+    <div id="signout-box">
+        <h1>Sign Out</h1>
+        <button id="signOutButton">Sign Out</button>
+    </div>
+
+
+    <!------ USER AUTH CHECK ------>
+    <!-- Check if user is authenticated -->
+    <script type="module" src="./auth-check.js"></script>
+
+
+    <!------ SIGNOUT FUNCTION ------>
+    <!-- Handle signout authentication -->
+    <script type="module" src="./signout-auth.js"></script>
+
+</body>
+
+</html>

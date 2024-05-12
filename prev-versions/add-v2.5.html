@@ -1,0 +1,154 @@
+<html>
+    <head>
+        <title>Firebase Form</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+
+        <!-- Main header -->
+        <header>
+            <p>Add an item to the Tool Library</p>
+            <p>
+                <a href="index.html">Home</a>&nbsp;&nbsp;
+                <a href="add.html">Add an item</a>&nbsp;&nbsp;
+                <a href="browse.html">Browse the library</a>&nbsp;&nbsp;
+            </p>
+        </header>
+
+        <!-- Add Item form goes here -->
+        <div class="box">
+            <div class="form">
+                <form id="add-form">
+
+                    <div class="inputbox">
+                        <input type="text"
+                               value=""
+                               id="title"
+                               required>
+                        <span>Item Title</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="text"
+                               value=""
+                               id="description"
+                               required>
+                        <span>Short Item Description</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="text"
+                               value=""
+                               id="name"
+                               required>
+                        <span>Your Name</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="text"
+                               value=""
+                               id="contact"
+                               required>
+                        <span>Contact Email or Phone</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <select id="category"
+                                required>
+                            <option value="">Select Category</option>
+                            <option value="Tools">Tools</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Garden">Garden</option>
+                            <option value="Books">Books</option>
+                            <option value="Games">Games</option>
+                            <option value="Sports-Outdoors">Sports and Outdoors</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <span>Item Category</span>
+                    </div>
+
+                    <div class="inputbox">
+                        <input type="file"
+                               class="inputFile"
+                               value=""
+                               id="image"
+                               accept="image/png, image/jpeg"
+                               >
+                        <label for="image">Item Image (optional)</label>
+                        <span class="fileText"></span>
+                    </div>
+
+                    <input type="submit" value="Submit" class="sub" id="submit">
+
+                </form>
+            </div>
+        </div>
+
+        <!-- Firebase setup goes here -->
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+            import { getDatabase, ref as ref_db, set, get, child } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+            import { getStorage, ref as ref_st, uploadBytes} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js";
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
+                authDomain: "tool-library-e8e06.firebaseapp.com",
+                databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "tool-library-e8e06",
+                storageBucket: "gs://tool-library-e8e06.appspot.com",
+                messagingSenderId: "67650459658",
+                appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
+                measurementId: "G-H7LQN191WH"
+            };
+
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+
+            // get ref to database services
+            const db = getDatabase(app);
+
+            // Get a reference to the storage service, which is used to create references in your storage bucket
+            const storage = getStorage();
+
+
+            // Add inputted information to database
+            document.getElementById("submit").addEventListener('click', function (e) {
+                e.preventDefault();
+
+                // Get the image file input element
+                var fileInput = document.getElementById("image");
+
+                // Get the selected file
+                var file = fileInput.files[0];
+
+                // Create a storage reference for the file
+                var storageRef = ref_st(storage, 'images/' + file.name);
+
+                // Upload the file to Firebase Storage
+                uploadBytes(storageRef, file).then((snapshot) => {
+                    console.log('File uploaded successfully');
+                       
+                            // Perform database operation
+                            set(ref_db(db, 'items/' + document.getElementById("title").value),
+                                {
+                                    title: document.getElementById("title").value,
+                                    description: document.getElementById("description").value,
+                                    name: document.getElementById("name").value,
+                                    contact: document.getElementById("contact").value,
+                                    category: document.getElementById("category").value,
+                                })
+
+                            alert("Item Added!");
+                            // Reset the form after successful upload
+                            document.getElementById("add-form").reset();
+
+                 })
+        </script>
+    </body>
+</html>

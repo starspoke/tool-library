@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <section>
+        <div class="content">
+            <div class="form">
+                <h2>Login</h2>
+                <form action="#">
+                    <div class="input">
+                        <span>Username</span>
+                        <input type="text" name="" required />
+                    </div>
+                    <div class="input">
+                        <span>Password</span>
+                        <input type="password" name="" required />
+                    </div>
+
+                    <div class="remember-me">
+                        <label>
+                            <input type="checkbox" name="" />Remember me?
+                        </label>
+                    </div>
+
+                    <div class="input">
+                        <input type="submit" value="Login" name="" id="submit-button" />
+                    </div>
+                    <div class="input">
+                        <p>Don't have an account? <a href="#">Create one.</a></p>
+                    </div>
+
+                    <!-- Add Google login button -->
+                    <div class="input">
+                        <button id="google-login-btn" class="google-button">
+                            <i class="fab fa-google"></i>Login with Google
+                        </button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <script>
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        import { getAuth, GoogleAuthProvider, signInWithRedirect } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+        const firebaseConfig = {
+        apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
+        authDomain: "tool-library-e8e06.firebaseapp.com",
+        databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "tool-library-e8e06",
+        storageBucket: "tool-library-e8e06.appspot.com",
+        messagingSenderId: "67650459658",
+        appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
+        measurementId: "G-H7LQN191WH"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const provider = new GoogleAuthProvider();
+        const auth = getAuth(app);
+        signInWithRedirect(auth, provider);
+        getRedirectResult(auth)
+        .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        }).catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Homepage</title>
+</head>
+
+<body>
+
+    <!--header tags with id to link it to function below-->
+    <header id="pageheader"></header>
+
+    <!--script has to be loaded before function is called below-->
+    <script src="script.js"></script>
+
+    <!--call function to input header text -->
+    <script>
+        displayHeader("Welcome to the Tool Library homepage");
+    </script>
+
+    <div id="content">
+        Welcome to the homepage
+    </div>
+
+    <!-- Check if user is authenticated -->
+    <script type="module" src="./auth-check.js"></script>
+
+</body>
+
+</html>

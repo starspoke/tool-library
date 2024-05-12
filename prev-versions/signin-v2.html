@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="signin-box">
+        <div class="right">
+            <h1>Sign In</h1>
+            <input type="text" id="signin-email" placeholder="Email" />
+            <input type="password" id="signin-password" placeholder="Password" />
+            <input type="submit" id="signIn" name="signin_submit" value="Sign in" />
+        </div>
+    </div>
+
+    <br /><br />
+
+    <button id="signOut">Sign Out</button>
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+        import { getDatabase } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
+            authDomain: "tool-library-e8e06.firebaseapp.com",
+            databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "tool-library-e8e06",
+            storageBucket: "tool-library-e8e06.appspot.com",
+            messagingSenderId: "67650459658",
+            appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
+            measurementId: "G-H7LQN191WH"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const database = getDatabase(app);
+        const auth = getAuth();
+
+        // Sign In
+        document.getElementById('signIn').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default form submission behavior
+
+            var email = document.getElementById('signin-email').value;
+            var password = document.getElementById('signin-password').value;
+
+            // Sign in user with email and password
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                    // Signed in successfully
+                    const user = userCredential.user;
+                    alert('Signed in successfully!');
+                    window.location.href = "index-ahmar.html"; // Redirect to index after successful sign-in
+                })
+                .catch((error) => {
+                    // Handle errors
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    alert(errorMessage);
+                });
+        });
+
+        // Sign Out
+        document.getElementById('signOut').addEventListener('click', () => {
+            signOut(auth)
+                .then(() => {
+                    // Sign-out successful
+                    alert('Signed out successfully!');
+                    // Redirect to sign-in page or wherever you want
+                    window.location.href = "index-ahmar.html";
+                })
+                .catch((error) => {
+                    // Handle errors
+                    alert(error.message);
+                });
+
+        });
+
+
+    </script>
+</body>
+
+</html>

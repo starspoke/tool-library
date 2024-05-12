@@ -8,6 +8,7 @@
 
 <body>
 
+    <!------ PAGE HEADER ------>
     <!--header tags with id to link it to function below-->
     <header id="pageheader"></header>
 
@@ -19,6 +20,8 @@
         displayHeader("Browse the Tool Library");
     </script>
 
+
+    <!------ PAGE CONTENT ------>
     <h2><u>List of Kitchen Items</u></h2>
     <div id="itemsList"></div>
 
@@ -72,14 +75,14 @@
                         if (item.category.toLowerCase() === filter) {
                             const itemDiv = document.createElement('div');
                             itemDiv.innerHTML = `
-                                    <h2>${item.title}</h2>
-                                    ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
-                                    <p><strong>Description:</strong> ${item.description}</p>
-                                    <p><strong>Category:</strong> ${item.category}</p>
-                                    <p><strong>Owner:</strong> ${item.name}</p>
-                                    <p><strong>Contact:</strong> ${item.contact}</p>
-                                    <hr>
-                                `;
+                                        <h2>${item.title}</h2>
+                                        ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
+                                        <p><strong>Description:</strong> ${item.description}</p>
+                                        <p><strong>Category:</strong> ${item.category}</p>
+                                        <p><strong>Owner:</strong> ${item.name}</p>
+                                        <p><strong>Contact:</strong> ${item.contact}</p>
+                                        <hr>
+                                    `;
                             itemsListDiv.appendChild(itemDiv);
                         }
                     }
@@ -92,6 +95,8 @@
         });
     </script>
 
+
+    <!------ PAGE FOOTER ------>
     <!--footer tags with id to link it to function below-->
     <footer id="pagefooter"></footer>
 
@@ -99,6 +104,10 @@
     <script>
         displayFooter();
     </script>
+
+    <!------ USER AUTH CHECK ------>
+    <!-- Check if user is authenticated -->
+    <script type="module" src="./auth-check.js"></script>
 
 </body>
 
