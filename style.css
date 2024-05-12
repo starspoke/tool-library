@@ -5,14 +5,16 @@ body {
     padding-bottom: 75px;
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #E6E7E7;
+    background-color: #e6e6e6;
     color: black;
     width: 50%;
     margin: 0 auto;
 }
 
+/* #E6E7E7 */
+
 header {
-    background-color: #333; /* Background color */
+    background-color: #465945; /* Background color */
     color: #fff; /* Text color */
     padding-top: 10px;
     padding-bottom: 10px;
