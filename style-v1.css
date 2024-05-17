@@ -1,0 +1,48 @@
+/* style.css */
+
+body {
+    padding-top: 150px;
+    padding-bottom: 75px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e6e6e6;
+    color: black;
+    width: 50%;
+    margin: 0 auto;
+}
+
+/* #E6E7E7 */
+
+header {
+    background-color: #465945; /* Background color */
+    color: #fff; /* Text color */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+header a {
+    color: #fff; /* Hyperlinked text colour, in header specifically */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 97%;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#verification-form {
+    margin-top: 100px;
+}
+
+#add-form {
+    margin-top: 40px;
+}
+

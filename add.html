@@ -2,6 +2,7 @@
 
 <head>
     <title>Add New Item</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -30,14 +31,14 @@
                 <br />
                 <small style="color: #646464;">Please keep it short &amp; descriptive</small>
                 <div class="inputbox">
-                    <input type="text" value="" id="title" placeholder="Item Title" required>
+                    <input type="text" value="" class="addBox" id="title" placeholder="Item Title" required>
                 </div>
 
                 <br />
 
                 <b>Short description </b>(optional)
                 <div class="inputbox">
-                    <input type="text" value="" id="description" placeholder="Short Description">
+                    <input type="text" value="" class="addBox" id="description" placeholder="Short Description">
                 </div>
 
                 <br />
@@ -46,7 +47,7 @@
                 <br />
                 <small style="color: #646464;">So people know who the owner is</small>
                 <div class="inputbox">
-                    <input type="text" value="" id="name" placeholder="Your Name" required>
+                    <input type="text" value="" class="addBox"  id="name" placeholder="Your Name" required>
                 </div>
 
                 <br />
@@ -55,14 +56,14 @@
                 <br />
                 <small style="color: #646464;">So others can contact you to borrow</small>
                 <div class="inputbox">
-                    <input type="text" value="" id="contact" placeholder="Contact Email / Phone" required>
+                    <input type="text" value="" class="addBox" id="contact" placeholder="Contact Email / Phone" required>
                 </div>
 
                 <br />
 
                 <b>Category</b>
                 <div class="inputbox">
-                    <select id="category" placeholder="Category" required>
+                    <select class="addBox" id="category" placeholder="Category" required>
                         <option value="">Select Category</option>
                         <option value="Tools">Tools</option>
                         <option value="Kitchen">Kitchen</option>
@@ -87,12 +88,9 @@
                     Please only upload an image if it's <br />
                     necessary or helpful for the item
                 </small>
-
                 <div class="inputbox">
                     <input type="file" id="image" accept="image/*">
                 </div>
-
-                <br />
 
                 <p><input type="submit" value="Submit New Item" class="sub" id="submit"></p>
                 <small style="color: #646464;">

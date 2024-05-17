@@ -1,23 +1,17 @@
 /* style.css */
 
+/* present on all screens regardless*/
+
 body {
-    padding-top: 150px;
-    padding-bottom: 75px;
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: #e6e6e6;
     color: black;
-    width: 50%;
-    margin: 0 auto;
 }
-
-/* #E6E7E7 */
 
 header {
     background-color: #465945; /* Background color */
     color: #fff; /* Text color */
-    padding-top: 10px;
-    padding-bottom: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -43,6 +37,97 @@ footer {
 }
 
 #add-form {
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
+#signUp {
+    background-color: #465945;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+#signIn {
+    background-color: #465945;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+
+#signOutButton {
+    background-color: #465945;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+}
+
+.browseLink {
+    color: #465945;
+}
+
+#submit {
+    background-color: #465945;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: pointer;
+}
+
+.addBox {
+    border-radius: 4px;
+    border-color: #465945;
+    border-width: 1px;
+}
+
+
+
+/* only on mobiles - baso just less padding */
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        padding-top: 110px;
+        padding-bottom: 75px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    header {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        position: fixed;
+    }
+
+    #headTitle {
+        font-size: 19px; /* Change 48px to the desired size */
+    }
+
+    .headLink {
+        font-size: 14px; /* Change 48px to the desired size */
+    }
+
+}
+
+
+/* on larger screens - more padding */
+
+@media only screen and (min-width: 601px) {
+    body {
+        padding-top: 150px;
+        padding-bottom: 75px;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        position: fixed;
+    }
+
+}
