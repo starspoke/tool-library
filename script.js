@@ -13,6 +13,6 @@ function displaySignedOutHeader(pageTitle) {
 }
 
 function displayFooter() {
-    document.getElementById("pagefooter").innerHTML = "&copy; 2024 Tool Library, by Oscar Sill";
+    document.getElementById("pagefooter").innerHTML = "<hr> <br> &copy; 2024 Tool Library, by Oscar Sill";
 }
 

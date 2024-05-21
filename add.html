@@ -22,153 +22,160 @@
 
 
     <!------ PAGE CONTENT ------>
-    <!-- Add Item form goes here -->
-    <div class="box">
-        <div class="form">
-            <form id="add-form">
+    <main>
 
-                <b>Item Title</b>
-                <br />
-                <small style="color: #646464;">Please keep it short &amp; descriptive</small>
-                <div class="inputbox">
-                    <input type="text" value="" class="addBox" id="title" placeholder="Item Title" required>
-                </div>
+        <!-- Add Item form goes here -->
+        <div class="box">
+            <div class="form">
+                <form id="add-form">
 
-                <br />
+                    <b>Item Title</b>
+                    <br />
+                    <small style="color: #646464;">Please keep it short &amp; descriptive</small>
+                    <div class="inputbox">
+                        <input type="text" value="" class="addBox" id="title" placeholder="Item Title" required>
+                    </div>
 
-                <b>Short description </b>(optional)
-                <div class="inputbox">
-                    <input type="text" value="" class="addBox" id="description" placeholder="Short Description">
-                </div>
+                    <br />
 
-                <br />
+                    <b>Short description </b>
+                    <br />
+                    <small style="color: #646464;">Any details people might find useful (eg genres, sizes, specs) <br />
+                        Try to list a few <b>key words</b> to help people search for items! </small>
+                    <div class="inputbox">
+                        <input type="text" value="" class="addBox" id="description" placeholder="Short Description">
+                    </div>
 
-                <b>Your Name</b>
-                <br />
-                <small style="color: #646464;">So people know who the owner is</small>
-                <div class="inputbox">
-                    <input type="text" value="" class="addBox"  id="name" placeholder="Your Name" required>
-                </div>
+                    <br />
 
-                <br />
+                    <b>Your Name</b>
+                    <br />
+                    <small style="color: #646464;">So people know who the owner is</small>
+                    <div class="inputbox">
+                        <input type="text" value="" class="addBox" id="name" placeholder="Your Name" required>
+                    </div>
 
-                <b>Contact Email / Phone</b>
-                <br />
-                <small style="color: #646464;">So others can contact you to borrow</small>
-                <div class="inputbox">
-                    <input type="text" value="" class="addBox" id="contact" placeholder="Contact Email / Phone" required>
-                </div>
+                    <br />
 
-                <br />
+                    <b>Contact Email / Phone</b>
+                    <br />
+                    <small style="color: #646464;">So others can contact you to borrow</small>
+                    <div class="inputbox">
+                        <input class="addBox" type="text" value="" id="contact" placeholder="Contact Email / Phone" required>
+                    </div>
 
-                <b>Category</b>
-                <div class="inputbox">
-                    <select class="addBox" id="category" placeholder="Category" required>
-                        <option value="">Select Category</option>
-                        <option value="Tools">Tools</option>
-                        <option value="Kitchen">Kitchen</option>
-                        <option value="Garden">Garden</option>
-                        <option value="Books">Books</option>
-                        <option value="Games">Games</option>
-                        <option value="Sports-Outdoors">Sports and Outdoors</option>
-                        <option value="Clothes">Clothes</option>
-                        <option value="Tech">Tech</option>
-                        <option value="Home">Home</option>
-                        <option value="Arts-Crafts">Arts and Crafts</option>
-                        <option value="Skills">Skills</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
+                    <br />
 
-                <br />
+                    <b>Category</b>
+                    <div class="inputbox">
+                        <select class="addBox" id="category" placeholder="Category" required>
+                            <option value="">Select Category</option>
+                            <option value="Tools">Tools</option>
+                            <option value="Kitchen">Kitchen</option>
+                            <option value="Garden">Garden</option>
+                            <option value="Books">Books</option>
+                            <option value="Games">Games</option>
+                            <option value="Sports-Outdoors">Sports and Outdoors</option>
+                            <option value="Clothes">Clothes</option>
+                            <option value="Tech">Tech</option>
+                            <option value="Home">Home</option>
+                            <option value="Arts-Crafts">Arts and Crafts</option>
+                            <option value="Skills">Skills</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
 
-                <!-- To upload image -->
-                <b>Upload Image </b>(optional)<br />
-                <small style="color: #646464;">
-                    Please only upload an image if it's <br />
-                    necessary or helpful for the item
-                </small>
-                <div class="inputbox">
-                    <input type="file" id="image" accept="image/*">
-                </div>
+                    <br />
 
-                <p><input type="submit" value="Submit New Item" class="sub" id="submit"></p>
-                <small style="color: #646464;">
-                    Submitting may take a second, especially if 
-                    uploading an image, please wait!
-                </small>
+                    <!-- To upload image -->
+                    <b>Upload Image </b>(optional)<br />
+                    <small style="color: #646464;">
+                        Please only upload an image if it's <br />
+                        necessary or helpful for the item
+                    </small>
+                    <div class="inputbox">
+                        <input type="file" id="image" accept="image/*">
+                    </div>
 
-            </form>
+                    <p><input type="submit" value="Submit New Item" class="sub" id="submit"></p>
+                    <small style="color: #646464;">
+                        Submitting may take a second, especially if
+                        uploading an image, please wait!
+                    </small>
+
+                </form>
+            </div>
         </div>
-    </div>
 
-    <!-- Firebase setup goes here -->
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
-        import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
-        import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js";
+        <!-- Firebase setup goes here -->
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
+            import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-database.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-analytics.js";
+            import { getStorage, ref as storageRef, uploadBytes } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-storage.js";
 
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-            apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
-            authDomain: "tool-library-e8e06.firebaseapp.com",
-            databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "tool-library-e8e06",
-            storageBucket: "tool-library-e8e06.appspot.com",
-            messagingSenderId: "67650459658",
-            appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
-            measurementId: "G-H7LQN191WH"
-        };
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyC2Ob8UMuyPsWWaQJE8R73WVgUK33OHJVc",
+                authDomain: "tool-library-e8e06.firebaseapp.com",
+                databaseURL: "https://tool-library-e8e06-default-rtdb.europe-west1.firebasedatabase.app",
+                projectId: "tool-library-e8e06",
+                storageBucket: "tool-library-e8e06.appspot.com",
+                messagingSenderId: "67650459658",
+                appId: "1:67650459658:web:37fdbd4ff52a58758467f3",
+                measurementId: "G-H7LQN191WH"
+            };
 
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
 
-        // get ref to database services
-        const db = getDatabase(app);
+            // get ref to database services
+            const db = getDatabase(app);
 
-        // Initialize Firebase Storage
-        const storage = getStorage(app);
+            // Initialize Firebase Storage
+            const storage = getStorage(app);
 
-        document.getElementById("submit").addEventListener('click', async function (e) {
-            e.preventDefault();
-            const file = document.getElementById("image").files[0];
-            // If no file is selected, skip image upload
-            let storageReference = null;
-            if (file) {
-                storageReference = storageRef(storage, 'images/' + file.name);
-                // Create a storage reference
+            document.getElementById("submit").addEventListener('click', async function (e) {
+                e.preventDefault();
+                const file = document.getElementById("image").files[0];
+                // If no file is selected, skip image upload
+                let storageReference = null;
+                if (file) {
+                    storageReference = storageRef(storage, 'images/' + file.name);
+                    // Create a storage reference
 
-                // Upload file to Firebase Storage
-                await uploadBytes(storageReference, file);
-            }
-            set(ref(db, 'items/' + document.getElementById("title").value),
-                {
+                    // Upload file to Firebase Storage
+                    await uploadBytes(storageReference, file);
+                }
+                set(ref(db, 'items/' + document.getElementById("title").value),
+                    {
 
-                    title: document.getElementById("title").value,
-                    description: document.getElementById("description").value,
-                    name: document.getElementById("name").value,
-                    contact: document.getElementById("contact").value,
-                    category: document.getElementById("category").value,
-                    imageUrl: file ? storageReference.fullPath : '' // Store image URL if file is uploaded
+                        title: document.getElementById("title").value,
+                        description: document.getElementById("description").value,
+                        name: document.getElementById("name").value,
+                        contact: document.getElementById("contact").value,
+                        category: document.getElementById("category").value,
+                        imageUrl: file ? storageReference.fullPath : '' // Store image URL if file is uploaded
 
-                })
+                    })
 
-            // Reset the form after submission
-            document.getElementById("add-form").reset();
+                // Reset the form after submission
+                document.getElementById("add-form").reset();
 
-            alert("Item Added!");
-        })
-    </script>
+                alert("Item Added!");
+            })
+        </script>
 
-    <br />
-    <br />
-    <i>Tip: </i>Don't see a category you think should exist? Drop me a message and I'll add it!
-    <br />
-    <br />
+        <br />
+        <br />
+        <i>Tip: </i>Don't see a category you think should exist? Drop me a message and I'll add it!
+        <br />
+        <br />
+
+    </main>
 
 
     <!------ PAGE FOOTER ------>
