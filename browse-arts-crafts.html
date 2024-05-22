@@ -25,13 +25,20 @@
     <!------ PAGE CONTENT ------>
     <main>
 
-        <h2><u>List of Arts and Crafts Items</u></h2>
+        <!--text with id to input page title-->
+        <span id="browseTitleText"></span>
+
+        <!--call function from .js file to input specified page title-->
+        <script>
+            displayBrowseTitle("List of Arts and Crafts Items");
+        </script>
+
         <div id="itemsList"></div>
 
         <script type="module">
 
             // CHANGE CATEGORY FILTER HERE
-            var filter = "arts-crafts"
+            var filter = "artscrafts"
 
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
@@ -69,23 +76,24 @@
                 if (snapshot.exists()) {
                     const items = snapshot.val();
                     const itemsListDiv = document.getElementById('itemsList');
+                    itemsListDiv.innerHTML = ''; // Clear the list before adding items
 
                     // Iterate through each item and display it
                     for (const key in items) {
                         if (Object.hasOwnProperty.call(items, key)) {
                             const item = items[key];
-                            // Check if the category is 'kitchen'
+                            // Check if the category matches the filter
                             if (item.category.toLowerCase() === filter) {
                                 const itemDiv = document.createElement('div');
                                 itemDiv.innerHTML = `
-                                                                    <hr>
-                                                                    <h2>${item.title}</h2>
-                                                                    ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
-                                                                    <p><strong>Description:</strong> ${item.description}</p>
-                                                                    <p><strong>Category:</strong> ${item.category}</p>
-                                                                    <p><strong>Owner:</strong> ${item.name}</p>
-                                                                    <p><strong>Contact:</strong> ${item.contact}</p>
-                                                                `;
+                                                                                                    <hr>
+                                                                                                    <h2>${item.title}</h2>
+                                                                                                    ${item.imageUrl ? `<img src="${await getDownloadURL(storageRef(storage, item.imageUrl))}" alt="Item Image" style="max-width: 200px;">` : ''}
+                                                                                                    <p><strong>Description:</strong> ${item.description}</p>
+                                                                                                    <p><strong>Category:</strong> ${item.category}</p>
+                                                                                                    <p><strong>Owner:</strong> ${item.name}</p>
+                                                                                                    <p><strong>Contact:</strong> ${item.contact}</p>
+                                                                                                `;
                                 itemsListDiv.appendChild(itemDiv);
                             }
                         }
@@ -97,6 +105,7 @@
                 console.error("Error getting data:", error);
             });
         </script>
+
 
     </main>
 

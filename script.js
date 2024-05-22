@@ -12,7 +12,12 @@ function displaySignedOutHeader(pageTitle) {
     document.getElementById("pageheader").innerHTML = "<h2>" + pageTitle + "</h2>";
 }
 
+function displayBrowseTitle(browseTitle) {
+    document.getElementById("browseTitleText").innerHTML = "<h2>" + browseTitle +
+        "</h2><small style='color: #646464;'><i>Tip: </i>If no items load, please refresh page!</small><br><br>";
+}
+
+
 function displayFooter() {
     document.getElementById("pagefooter").innerHTML = "<hr> <br> &copy; 2024 Tool Library, by Oscar Sill";
 }
-
